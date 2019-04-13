@@ -1,17 +1,24 @@
+package Helpers;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigurationReader {
     private static ConfigurationReader instance;
-    private static String configurationFilePath = System.getProperty("user.dir") + "\\src\\test\\resources\\configuration.file";
+    private static String configurationFilePath = System.getProperty("user.dir") + "\\src\\test\\resources\\configuration.properties";
     
     private static String url;
     private static String wrongUsername;
     private static String wrongPassword;
     private static String wrongCredentialsErrorMessage;
+    private static String footerCompanyLinkDestination;
+    private static String linkedInLinkDestination;
+    private static String facebookLinkDestination;
 
-    //We need only one ConfigurationReader at all times so we make singleton
+    private static String browserForTests;
+
+    //We need only one Helpers.ConfigurationReader at all times so we make singleton
     public static ConfigurationReader getInstance () {
         if (instance == null) {
                 instance = new ConfigurationReader();
@@ -20,11 +27,11 @@ public class ConfigurationReader {
         return instance;
     }
 
-    //Populate the configuration fields with the values from the configuration.file
+    //Populate the configuration fields with the values from the configuration.properties file
     private void loadData() {
         Properties props = new Properties();
 
-        //Attempt read from the configuration.file properties
+        //Attempt read from the configuration.properties file
         try {
             props.load(new FileInputStream(configurationFilePath));
         } catch (IOException e) {
@@ -36,6 +43,10 @@ public class ConfigurationReader {
         wrongUsername = props.getProperty("wrongUsername");
         wrongPassword = props.getProperty("wrongPassword");
         wrongCredentialsErrorMessage = props.getProperty("wrongCredentialsErrorMessage");
+        browserForTests = props.getProperty("browserForTests");
+        footerCompanyLinkDestination = props.getProperty("footerCompanyLinkDestination");
+        linkedInLinkDestination = props.getProperty("linkedInLinkDestination");
+        facebookLinkDestination = props.getProperty("facebookLinkDestination");
     }
 
     public String getURL () {
@@ -53,4 +64,14 @@ public class ConfigurationReader {
     public String getWrongCredentialsErrorMessage () {
         return wrongCredentialsErrorMessage;
     }
+
+    public String getBrowserForTests() {
+        return browserForTests;
+    }
+
+    public String getCompanyLinkDestination(){ return footerCompanyLinkDestination; }
+
+    public String getLinkedInLinkDestination() { return linkedInLinkDestination; }
+
+    public String getFacebookLinkDestination() { return facebookLinkDestination; }
 }

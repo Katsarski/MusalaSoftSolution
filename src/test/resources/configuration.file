@@ -1,6 +1,0 @@
-url = http://www.n11.com/
-
-wrongUsername = onur@swtestacademy.com
-wrongPassword = 11122233444
-
-wrongCredentialsErrorMessage = "Sorry you cannot login"
