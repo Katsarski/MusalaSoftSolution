@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SignInPage extends PageObject {
+public class SignInPage extends BasePageObject {
 
     String wrongUsernameConf = ConfigurationReader.getInstance().getWrongUsername();
     String wrongPasswordConf = ConfigurationReader.getInstance().getWrongPassword();

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import javax.xml.xpath.XPath;
 
-public class ArchivePage extends PageObject{
+public class ArchivePage extends BasePageObject{
 
     @FindBy(xpath = "//div[(@class='col-md-4 col-sm-6 event-box-mobile') and position()=last()]")
     public WebElement lastEvent;

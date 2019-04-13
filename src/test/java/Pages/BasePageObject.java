@@ -9,10 +9,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 
-public class PageObject {
+public class BasePageObject {
     protected WebDriver driver;
 
-    public PageObject(WebDriver driver){
+    public BasePageObject(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -22,7 +22,7 @@ public class PageObject {
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
 
-    public void selectToMainTab(){
+    public void selectMainTab(){
         ArrayList<String> availableBrowserTabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(availableBrowserTabs.get(availableBrowserTabs.size() - availableBrowserTabs.size()));
     }

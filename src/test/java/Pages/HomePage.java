@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class HomePage extends PageObject {
+public class HomePage extends BasePageObject {
 
     public HomePage(WebDriver driver) {
         super(driver);

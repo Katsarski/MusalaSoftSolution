@@ -7,10 +7,10 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class EventPage extends PageObject{
+public class EventPage extends BasePageObject{
 
     @FindAll(
-    @FindBy(xpath = "//li[contains(@class, 'list-group-item header-timeslot') and contains(., 'Day')] | //div[contains(@class, 'speaker-info')]")
+    @FindBy(xpath = "//li[contains(@class, 'list-group-item header-timeslot')] | //div[contains(@class, 'speaker-info')]")
     )
     public List<WebElement> eventDayElements;
     @FindBy(id = "map-canvas")

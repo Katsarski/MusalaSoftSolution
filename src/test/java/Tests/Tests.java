@@ -33,13 +33,13 @@ public class Tests extends BaseTest {
          assertEquals(configurationReader.getCompanyLinkDestination(),
                  driver.getCurrentUrl());
 
-         homePage.selectToMainTab();
+         homePage.selectMainTab();
 
          homePage.navigateToMusalaLinkedInPage();
          assertEquals(configurationReader.getLinkedInLinkDestination(),
                  driver.getCurrentUrl());
 
-         homePage.selectToMainTab();
+         homePage.selectMainTab();
 
          homePage.navigateToMusalaFacebookPage();
          assertEquals(configurationReader.getFacebookLinkDestination(),
