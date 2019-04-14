@@ -13,3 +13,4 @@ Steps:
 3. Import maven project
 4. If this doesn't happen automagically on import - download the project dependencies using "mvn install"
 5. Build/Rebuild project
+6. Run and have fun ;)
