@@ -15,12 +15,12 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
+    //Expose an instance of the static driver and the configuration reader so tests can use them
     protected static WebDriver driver;
-    protected ConfigurationReader configurationReader = new ConfigurationReader();
+    protected static ConfigurationReader configurationReader = new ConfigurationReader();
 
     @BeforeClass
     public static void setUp(){
-        //System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+ "\\drivers\\geckodriver.exe");
         if (ConfigurationReader.getInstance().getBrowserForTests().equals("Firefox")){
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
@@ -41,7 +41,7 @@ public class BaseTest {
 
     @AfterClass
     public static void tearDown(){
-       // driver.quit();
+       driver.quit();
     }
 
 }

@@ -1,11 +1,13 @@
 package Pages;
 
+import Pages.ExternalPages.FacebookPage;
+import Pages.ExternalPages.LinkedInPage;
+import Pages.ExternalPages.MusalaPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class HomePage extends BasePageObject {
+public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -33,22 +35,25 @@ public class HomePage extends BasePageObject {
         return new ArchivePage(driver);
     }
 
-    public void navigateToMusalaCompanyPage(){
+    public MusalaPage navigateToMusalaCompanyPage(){
         footerCompanyLink.click();
         selectLastOpenedTab();
         waitForPageToLoad();
+        return new MusalaPage(driver);
     }
 
-    public void navigateToMusalaLinkedInPage(){
+    public LinkedInPage navigateToMusalaLinkedInPage(){
         footerLinkedInLink.click();
         selectLastOpenedTab();
         waitForPageToLoad();
+        return new LinkedInPage(driver);
     }
 
-    public void navigateToMusalaFacebookPage(){
+    public FacebookPage navigateToMusalaFacebookPage(){
         footerFacebookLink.click();
         selectLastOpenedTab();
         waitForPageToLoad();
+        return new FacebookPage(driver);
     }
 
 }

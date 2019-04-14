@@ -18,7 +18,7 @@ public class ConfigurationReader {
 
     private static String browserForTests;
 
-    //We need only one Helpers.ConfigurationReader at all times so we make singleton
+    //We need only one ConfigurationReader at all times so we make it singleton
     public static ConfigurationReader getInstance () {
         if (instance == null) {
                 instance = new ConfigurationReader();
@@ -27,7 +27,7 @@ public class ConfigurationReader {
         return instance;
     }
 
-    //Populate the configuration fields with the values from the configuration.properties file
+    //Read and assign fields from configuration file
     private void loadData() {
         Properties props = new Properties();
 
@@ -38,7 +38,7 @@ public class ConfigurationReader {
             System.out.println("Configuration properties file not found");
         }
 
-        //Assign fields with the properties from configuration.properties
+        //Assign fields with the values from the configuration.properties file
         url = props.getProperty("url");
         wrongUsername = props.getProperty("wrongUsername");
         wrongPassword = props.getProperty("wrongPassword");
@@ -49,6 +49,7 @@ public class ConfigurationReader {
         facebookLinkDestination = props.getProperty("facebookLinkDestination");
     }
 
+    //Expose the configuration values through Getters
     public String getURL () {
         return url;
     }

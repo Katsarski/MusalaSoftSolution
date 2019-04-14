@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class EventPage extends BasePageObject{
+public class EventPage extends BasePage {
 
     @FindAll(
     @FindBy(xpath = "//li[contains(@class, 'list-group-item header-timeslot')] | //div[contains(@class, 'speaker-info')]")

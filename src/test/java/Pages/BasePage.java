@@ -9,10 +9,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 
-public class BasePageObject {
+public class BasePage {
     protected WebDriver driver;
 
-    public BasePageObject(WebDriver driver){
+    public BasePage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -33,7 +33,7 @@ public class BasePageObject {
     }
 
     public void waitForElementToLoad(WebElement elementToWaitFor){
-        WebDriverWait wait = new WebDriverWait(driver, 30); //here, wait time is 20 seconds
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.visibilityOf(elementToWaitFor));
     }
 }
