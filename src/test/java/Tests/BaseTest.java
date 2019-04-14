@@ -1,6 +1,7 @@
 package Tests;
 
 import Helpers.ConfigurationReader;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -8,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.sql.DriverManager;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
@@ -20,14 +22,12 @@ public class BaseTest {
     public static void setUp(){
 
         if (ConfigurationReader.getInstance().getBrowserForTests().equals("Firefox")){
-            System.setProperty("webdriver.gecko.driver",  System.getProperty("user.dir") +
-                    "\\drivers\\firefoxdriver.exe");
+            WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
             driver.manage().window().maximize();
         }
         else if(ConfigurationReader.getInstance().getBrowserForTests().equals("Chrome")){
-            System.setProperty("webdriver.chrome.driver",  System.getProperty("user.dir") +
-                    "\\drivers\\chromedriver.exe");
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
             driver.manage().window().maximize();
         }
