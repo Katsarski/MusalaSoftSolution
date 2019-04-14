@@ -17,7 +17,7 @@ public class Tests extends BaseTest {
     //Test Case 1
     @Test
     public void verifySignInWithInvalidCredentials(){
-       driver.get(configurationReader.getURL());
+        driver.get(configurationReader.getURL());
 
        HomePage homePage = new HomePage(super.driver);
 
@@ -38,6 +38,7 @@ public class Tests extends BaseTest {
         Assert.assertEquals(configurationReader.getCompanyLinkDestination(),
                 driver.getCurrentUrl());
         Assert.assertTrue(musalaPage.companyLogo.isDisplayed());
+        driver.close();
         homePage.selectMainTab();
 
         //Navigate to company facebook page and verify URL and logo
@@ -45,6 +46,7 @@ public class Tests extends BaseTest {
         Assert.assertEquals(configurationReader.getFacebookLinkDestination(),
                 driver.getCurrentUrl());
         Assert.assertTrue(facebookPage.companyLogo.isDisplayed());
+        driver.close();
 
         homePage.selectMainTab();
 

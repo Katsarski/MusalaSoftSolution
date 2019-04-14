@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 public class BasePage {
     protected WebDriver driver;
@@ -23,13 +24,13 @@ public class BasePage {
     }
 
     public void selectMainTab(){
-        ArrayList<String> availableBrowserTabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(availableBrowserTabs.get(availableBrowserTabs.size() - availableBrowserTabs.size()));
+        Set <String> availableBrowserTabs = driver.getWindowHandles();
+        driver.switchTo().window(availableBrowserTabs.toArray()[0].toString());
     }
 
     public void selectLastOpenedTab(){
         ArrayList<String> availableBrowserTabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(availableBrowserTabs.get(availableBrowserTabs.size() - availableBrowserTabs.size() + 1));
+        driver.switchTo().window(availableBrowserTabs.get(availableBrowserTabs.size() - 1));
     }
 
     public void waitForElementToLoad(WebElement elementToWaitFor){
