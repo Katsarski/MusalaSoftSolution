@@ -29,7 +29,7 @@ public class Tests extends BaseTest {
 
     //Test Case 2
     @Test
-    public void verifyHomePageLinksAndLogos(){
+    public void verifyHomePageLinksAndLogos() throws InterruptedException {
         driver.get((configurationReader.getURL()));
 
         //Navigate to company page and verify URL and logo

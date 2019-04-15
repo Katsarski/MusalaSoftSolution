@@ -10,7 +10,7 @@ public class LinkedInPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(className = "lazy-image org-top-card-primary-content__logo Elevation-0dp loaded")
+    @FindBy(className = "top-card__logo-container top-card__logo-container--desktop")
     public WebElement companyLogo;
 
 }
