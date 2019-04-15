@@ -42,11 +42,9 @@ public class HomePage extends BasePage {
         return new MusalaPage(driver);
     }
 
-    public LinkedInPage navigateToMusalaLinkedInPage() throws InterruptedException {
+    public LinkedInPage navigateToMusalaLinkedInPage() {
         footerLinkedInLink.click();
         selectLastOpenedTab();
-        //remove sleep and throws statement before submitting
-        Thread.sleep(1000);
         waitForPageToLoad();
         return new LinkedInPage(driver);
     }
